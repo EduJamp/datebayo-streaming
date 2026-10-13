@@ -1,0 +1,317 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    color-scheme: dark;
+    --bg-body: #080b0e;
+    --bg-navbar: rgba(16, 18, 22, 0.95);
+    --bg-card: linear-gradient(150deg, #14161b, #0c0f13);
+    --text-main: #fffaf5;
+    --text-muted: #a3a6b0;
+    --primary-color: #ff7900;
+    --primary-hover: #ff941f;
+    --accent-color: #00d9f5;
+    --border-color: #252a32;
+    --gradient-brand: linear-gradient(
+            105deg,
+            #fffaf5 5%,
+            #ffd0a6 40%,
+            #ff8a1d 72%,
+            #ff7900 100%
+    );
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+    --bg-body: #f4f6f8;
+    --bg-navbar: rgba(255, 255, 255, 0.96);
+    --bg-card: linear-gradient(150deg, #ffffff, #f8fafb);
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --border-color: #dddddd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding-top: 100px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navegación */
+
+.navbar-custom {
+    background: var(--bg-navbar);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link i {
+    margin-right: 5px;
+}
+
+.navbar-toggler {
+    border-color: var(--border-color);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+[data-theme="light"] .navbar-toggler-icon {
+    filter: none;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+/* Título */
+
+.page-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.page-title span {
+    color: var(--primary-color);
+}
+
+/* Contenedor del carrito */
+
+.cart-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.table-custom {
+    color: var(--text-main);
+    border-color: var(--border-color);
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.table-custom > :not(caption) > * > * {
+    background-color: transparent;
+    color: var(--text-main);
+    border-bottom-color: var(--border-color);
+    padding: 15px 10px;
+}
+
+.table-custom thead th {
+    color: var(--text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.product-name {
+    font-weight: 600;
+}
+
+.product-subtotal {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+}
+
+.remove-form {
+    display: inline-block;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 45px 15px !important;
+    color: var(--text-muted) !important;
+}
+
+.empty-cart i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.empty-cart p {
+    margin-bottom: 10px;
+}
+
+.empty-cart a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.empty-cart a:hover {
+    text-decoration: underline;
+}
+
+/* Resumen */
+
+.summary-box {
+    background: var(--bg-card);
+    border: 1px solid var(--accent-color);
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+}
+
+.summary-title {
+    font-weight: 700;
+    border-bottom: 1px solid rgba(0, 217, 245, 0.3);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.summary-line span {
+    color: var(--text-muted);
+}
+
+.total-line {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 25px;
+}
+
+.total-line span {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.total-line strong {
+    color: var(--primary-color);
+    font-size: 1.35rem;
+}
+
+/* Formularios */
+
+.form-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.form-control-custom {
+    background-color: #15191e;
+    border: 1px solid var(--border-color);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.form-control-custom:focus {
+    background-color: #12191d;
+    border-color: var(--accent-color);
+    color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 217, 245, 0.1);
+}
+
+.form-control-custom::file-selector-button {
+    background: #252a32;
+    color: #ffffff;
+}
+
+[data-theme="light"] .form-control-custom,
+[data-theme="light"] .form-control-custom:focus {
+    background-color: #f0f3f5;
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .form-control-custom::file-selector-button {
+    background: #e1e5e8;
+    color: #1a1a1a;
+}
+
+.form-help {
+    display: block;
+    color: var(--text-muted);
+    margin-top: 7px;
+    font-size: 0.78rem;
+}
+
+/* Botones */
+
+.btn-custom {
+    display: block;
+    width: 100%;
+    background: linear-gradient(105deg, #ff7900, #ff941f);
+    color: #111316;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 121, 0, 0.23);
+    color: #000000;
+}
+
+.continue-button {
+    margin-top: 25px;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 85px;
+    }
+
+    .cart-container,
+    .summary-box {
+        padding: 16px;
+    }
+
+    .table-custom > :not(caption) > * > * {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
